@@ -8,12 +8,12 @@ api = apiVersions[LATEST_API_VERSION]
 
 
 /***
- * Helper functions
+ * Fonctions d'assistance
  ***/
 
-/* Return the HTML string for the page */
+/* Renvoie la chaîne HTML pour la page */
 function getHTML(data) {
-  // Generate an HTML page from the contents of each <textarea>
+  // Générer une page HTML à partir du contenu de chaque <textarea>
   var pageData =
 `
 <!DOCTYPE html>
@@ -24,8 +24,8 @@ ${data["css"]}
 <script type="text/javascript">
 ${data["js"]}
 </scr` +
-// This has to be broken up because otherwise it is recognized as the main
-// document's end script tag
+// Cela doit être rompu car sinon il est reconnu comme
+// la balise de script final du document principal
 `ipt>
 </head>
 <body>
@@ -38,11 +38,11 @@ ${data["html"]}
 
 
 /***
- * Button press functions
+ * Fonctions d'appui du bouton
  ***/
 
 
-/* Set the TinyUrl form hidden 'url' field to the view URL */
+/* Réglez le champ Tinyurl Form caché 'url' sur l'URL de la vue */
 function setViewUrl() {
   var data = {
     "css" : document.getElementById("css").value,
@@ -52,18 +52,18 @@ function setViewUrl() {
 
   var html = getHTML(data);
 
-	// Update the URL for the "Short Link" button
+	// Mettez à jour l'URL du bouton "Court lien"
   document.getElementById("url").value = api.getViewLink(html);
 }
 
 
-/* Set the TinyUrl form hidden 'url' field to the code URL */
+/* Réglez le champ Tinyurl Form caché 'url' sur le champ de l'URL du code */
 function setCodeUrl() {
   document.getElementById("url").value = window.location.href;
 }
 
 
-/* Show a prompt with the HTML page data so the user can copy the code */
+/* Afficher une invite avec les données de la page HTML afin que l'utilisateur puisse copier le code */
 function showCopyCodePrompt() {
   var data = {
     "css" : document.getElementById("css").value,
@@ -77,7 +77,7 @@ function showCopyCodePrompt() {
 }
 
 
-/* Hide and show buttons based on checkbox state */
+/* Masquer et afficher les boutons basés sur l'état de la case à cocher */
 function hideButtons(box) {
   let buttons = document.querySelectorAll("button");
   if (box.checked) {
@@ -90,12 +90,12 @@ function hideButtons(box) {
 
 
 /***
- * Main procedure functions
+ * Fonctions de procédure principales
  ***/
 
-/* Run once when the page is loaded */
+/* Exécutez une fois lorsque la page est chargée */
 function initialize() {
-  // Get page data from the URL and load it into the boxes
+  // Obtenez les données de la page de l'URL et chargez-la dans les boîtes de codes
   if (window.location.hash) {
     var encoded = window.location.hash.slice(1);
     var json = b64.decode(encoded);
@@ -110,7 +110,7 @@ function initialize() {
 }
 
 
-/* Run each time a key is pressed on a text box */
+/* Exécutez chaque fois qu'une touche est enfoncée sur une zone de texte dans les boîtes */
 function update() {
   var data = {
     "css" : document.getElementById("css").value,
@@ -120,15 +120,16 @@ function update() {
 
   var html = getHTML(data);
 
-  // Save encoded page data to the URL
+  // Enregistrer les données de la page codée sur l'URL
   window.location.hash = "#" + b64.encode(JSON.stringify(data));
 
-  // Update the URL for the "Get Link" button
+  // Mettez à jour l'URL du bouton "Obtenir le lien"
   document.getElementById("getLinkLink").href = api.getViewLink(html);
 
-  // Update the download link
+  // Mettre à jour le lien de téléchargement
   document.getElementById("downloadLink").href = `data:text/html,${html}`
 
-  // Update the <iframe> to display the generated page
+  // Mettez à jour l'<iframe> pour afficher la page générée
   window.frames[0].location.replace(`data:text/html;charset=utf-8;base64,${b64.encode(html)}`);
 }
+
