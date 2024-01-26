@@ -1,8 +1,8 @@
 # URL Pages
 
-[jstrieb.github.io/urlpages](http://jstrieb.github.io/urlpages)
+[lapervenche.github.io](http://lapervenche.github.io)
 
-## About
+## A propos
 
 - Create web pages in the simple, fast editor
 - Share code that others can edit and modify
