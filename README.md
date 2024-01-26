@@ -1,6 +1,6 @@
 # URL Pages
 
-[lapervenche.github.io](http://lapervenche.github.io)
+[lapervenche.github.io/urlpages](http://lapervenche.github.io/urlpages)
 
 ## A propos
 
