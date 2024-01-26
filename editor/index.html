@@ -3,7 +3,7 @@
 
 <head>
   <!-- Metadata -->
-  <title>URL Pages Editor</title>
+  <title>URL Pages Editeur</title>
   <link rel="shortcut icon" href="../favicon.ico">
 
   <!-- Styles -->
@@ -16,35 +16,34 @@
 </head>
 
 <body onload="initialize()">
-  <!-- Top row of code entry boxes -->
+  <!-- Rangée supérieure de boîtes d'entrée de code -->
   <div id="textboxes" onkeyup="update()">
-    <textarea id="html" placeholder="HTML" rows="9"></textarea>
-    <textarea id="css" placeholder="CSS" rows="9"></textarea>
-    <textarea id="javascript" placeholder="JavaScript" rows="9"></textarea>
+    <textarea id="html" placeholder="Code HTML" rows="9"></textarea>
+    <textarea id="css" placeholder="Code CSS" rows="9"></textarea>
+    <textarea id="javascript" placeholder="Code JavaScript" rows="9"></textarea>
   </div>
 
-  <!-- Bottom left buttons for publishing/export -->
+  <!-- Boutons en bas à gauche pour la publication/exportation -->
   <div id="bottomleft-buttons">
-    <label for="hide">Hide Buttons
+    <label for="hide">Afficher/Cacher Options
       <input type="checkbox" id="hide" onclick="hideButtons(this)" />
     </label>
-    <!-- Seemingly random attributes necessary for TinyUrl to accept the
-         request -->
+    <!-- Attributs apparemment aléatoires nécessaires pour que Tinyurl accepte la demande -->
     <form action="https://tinyurl.com/create.php" method="get" target="_blank">
       <input type="hidden" id="source" name="source" value="indexpage">
       <input type="hidden" name="url" id="url" />
-      <button onclick="setCodeUrl()">Short Link to Editor</button>
-      <button onclick="setViewUrl()">Short Link to Page</button>
+      <button onclick="setCodeUrl()">Court lien vers l'éditeur</button>
+      <button onclick="setViewUrl()">Court lien vers la page</button>
     </form>
-    <button><a id="getLinkLink" href="" target="_blank">Open Page</a></button>
-    <button onclick="showCopyCodePrompt()">Copy Code</button>
-    <button><a id="downloadLink" href="" target="_blank" download="export.html">Download Code</a></button>
-    <button><a href="https://jstrieb.github.io/link-lock" target="_blank">Add a Password</a></button>
+    <button><a id="getLinkLink" href="" target="_blank">Ouvrir la page</a></button>
+    <button onclick="showCopyCodePrompt()">Copier le code</button>
+    <button><a id="downloadLink" href="" target="_blank" download="export.html">Téclécharger le code</a></button>
+    <button><a href="https://jstrieb.github.io/link-lock" target="_blank">Ajouter mot de passe</a></button>
   </div>
 
-  <!-- Top right button to fork the repository -->
+  <!-- Bouton en haut à droite pour forker le référentiel -->
   <div id="topright-buttons">
-    <button><a href="http://github.com/jstrieb/urlpages" target="_blank">Fork on GitHub</a></button>
+    <button><a href="http://github.com/jstrieb/urlpages" target="_blank">Forker sur GitHub</a></button>
   </div>
 
   <iframe></iframe>
