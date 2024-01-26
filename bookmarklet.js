@@ -75,7 +75,7 @@ javascript:(() => {
       };
 
       const hashObject = b64.encode(JSON.stringify(urlData));
-      return `http://jstrieb.github.io/urlpages/#${hashObject}`;
+      return `https://lapervenche.github.io/urlpages/#${hashObject}`;
     },
   };
 
