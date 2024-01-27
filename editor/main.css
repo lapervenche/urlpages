@@ -10,8 +10,14 @@ html, body {
 
 #textboxes {
   height: 40%;
-  width: 100%;
+  width: 98%;
   font-size: 0px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-bottom-width: 1px;
+  border-bottom-style: none;
+  margin-right: 15px;
+  margin-bottom: 10px;
 }
 
 textarea {
